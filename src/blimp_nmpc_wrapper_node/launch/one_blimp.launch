@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<launch>
+
+    <arg name="robotID" default="1" />
+    <arg name="numRobots" default="1" />
+    <group ns="machine_$(arg robotID)">
+            <node name="nmpc_blimp_planner" pkg="nmpc_blimp_formation_planner" type="nmpc_blimp_planner" output="screen" >
+                <rosparam file="$(find nmpc_blimp_formation_planner)/config/open_params.yaml" />
+	    </node>
+    </group>
+    <group ns="machine_$(arg robotID)">
+            <node name="blimp_nmpc_wrapper_node" pkg="blimp_nmpc_wrapper_node" type="blimp_nmpc_wrapper_node.py" output="screen" >
+                <param name="robotID" value="$(arg robotID)" />
+                <param name="numRobots" value="$(arg numRobots)" />
+	    </node>
+    </group>
+
+</launch>

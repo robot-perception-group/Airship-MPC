@@ -1,0 +1,7 @@
+[submodule "submodules/AirCap"]
+	path = submodules/AirCap
+	url = https://github.com/robot-perception-group/AirCap.git
+	branch = aircap_airships
+[submodule "submodules/pytorch_ssd_server"]
+	path = submodules/pytorch_ssd_server
+	url = https://github.com/robot-perception-group/pytorch_ssd_server
