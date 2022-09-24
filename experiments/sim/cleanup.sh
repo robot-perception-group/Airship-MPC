@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ../../catkin_ws/devel/setup.bash
+
 # stopping all rosnodes
 rosnode kill --all
 # stopping the gazebo client aka gui
