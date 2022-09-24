@@ -1,6 +1,7 @@
 # Airship-MPC
+![airship_cover_with_inlay](https://user-images.githubusercontent.com/32105268/192122387-465e4489-5635-44d2-ab37-2071c48651a0.png)
 
-Nonlinear Model Predictive Formation Controller for Airships for project AirCap.
+Perception-driven Formation Control of Airships for project AirCap using nonlinear model predictive control (MPC)
 
 ## Usage
 
