@@ -48,14 +48,14 @@ fi
 # fi
 
 echo "Launching Gazebo..."
-screen -d -m -S GAZEBO bash -i -c "roslaunch rotors_gazebo world.launch world_name:=$WORLD --screen"
+screen -d -m -S GAZEBO bash -i -c "source ../../catkin_ws/devel/setup.bash; roslaunch rotors_gazebo world.launch world_name:=$WORLD --screen"
 
 #roslaunch rotors_gazebo world.launch world_name:=arena_HKT_2 --screen &
 # rosrun uavPidParamServer pid_serverNode &
 sleep 10
 
 echo "Launching rviz..."
-screen -d -m -S RVIZ bash -i -c "rviz -d ../../submodules/AirCap/packages/3rdparty/airship_simulation/blimp_description/rviz/3_blimp_nmpc.rviz"
+screen -d -m -S RVIZ bash -i -c "source ../../catkin_ws/devel/setup.bash; rviz -d ../../submodules/AirCap/packages/3rdparty/airship_simulation/blimp_description/rviz/3_blimp_nmpc.rviz"
 sleep 5
 
 echo "Starting Deep Neural Network Server..."
@@ -69,13 +69,13 @@ sleep 5
 #roslaunch random_moving_target publish_target.launch joyDevName:=0 directUseForFormation:=true --screen &
 
 echo "Starting GCS Visualization framework..."
-screen -d -m -S GCSVIS bash -i -c "rosrun gcs_visualization gcs_visualization_node $ROBOS 30 1 0 arrow 8"
+screen -d -m -S GCSVIS bash -i -c "source ../../catkin_ws/devel/setup.bash; rosrun gcs_visualization gcs_visualization_node $ROBOS 30 1 0 arrow 8"
 
 sleep 3
 
 #spawn target
 echo "Spawning target"
-screen -d -m -S TARGET bash -i -c "roslaunch random_moving_target spawn_target_withID.launch joyDevName:=0 directUseForFormation:=true --screen"
+screen -d -m -S TARGET bash -i -c "source ../../catkin_ws/devel/setup.bash; roslaunch random_moving_target spawn_target_withID.launch joyDevName:=0 directUseForFormation:=true --screen"
 
 for i in $(seq 0 $(($BLIMPS-1))); do
     id=$(( QUADS + i + 1 ))
@@ -83,7 +83,7 @@ for i in $(seq 0 $(($BLIMPS-1))); do
     screen -d -m -S SIMPOSIX bash -i -c "./fc_server.sh $i"
 
     echo "Starting Blimp $id"
-    screen -d -m -S AIRCAP$id bash -i -c "roslaunch aircap simulation_blimp.launch robotID:=$id numRobots:=$ROBOS comSuccessRate:=$COMSUCCESSRATE Z:=8 X:=${Xs[$id]}  Y:=${Ys[$id]} --screen"
+    screen -d -m -S AIRCAP$id bash -i -c "source ../../catkin_ws/devel/setup.bash; roslaunch aircap simulation_blimp.launch robotID:=$id numRobots:=$ROBOS comSuccessRate:=$COMSUCCESSRATE Z:=8 X:=${Xs[$id]}  Y:=${Ys[$id]} --screen"
     sleep 5
 done
 
