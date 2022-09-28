@@ -1,7 +1,7 @@
 # Perception-driven Formation Control of Airships for project AirCap using nonlinear model predictive control (MPC)
 ![airship_cover_with_inlay](https://user-images.githubusercontent.com/32105268/192122387-465e4489-5635-44d2-ab37-2071c48651a0.png)
 
-A preprint of our method is available on Arxiv: https://arxiv.org/abs/2209.13040
+A preprint of our method is available on arXiv: https://arxiv.org/abs/2209.13040
 
 This video is giving an overview of our approach:<br>
 [<img src="https://img.youtube.com/vi/ihS0_VRD_kk/0.jpg" width="300" alt="Youtube Video"/>](https://www.youtube.com/watch?v=ihS0_VRD_kk)
