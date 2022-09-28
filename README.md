@@ -1,13 +1,10 @@
-# Airship-MPC
+# Perception-driven Formation Control of Airships for project AirCap using nonlinear model predictive control (MPC)
 ![airship_cover_with_inlay](https://user-images.githubusercontent.com/32105268/192122387-465e4489-5635-44d2-ab37-2071c48651a0.png)
 
-Perception-driven Formation Control of Airships for project AirCap using nonlinear model predictive control (MPC)
+A preprint of our method is available on Arxiv: https://arxiv.org/abs/2209.13040
 
-A preprint describing our method is available on https://arxiv.org/abs/2209.13040
-
-image:: https://img.youtube.com/vi/ihS0_VRD_kk/maxresdefault.jpg
-    :alt: Video: Perception-driven Formation Control of Airships
-    :target: https://www.youtube.com/watch?v=ihS0_VRD_kk
+This video is giving an overview of our approach:<br>
+[<img src="https://img.youtube.com/vi/ihS0_VRD_kk/0.jpg" width="300" alt="Youtube Video"/>](https://www.youtube.com/watch?v=ihS0_VRD_kk)
 
 
 ## Usage
@@ -21,6 +18,9 @@ image:: https://img.youtube.com/vi/ihS0_VRD_kk/maxresdefault.jpg
 
 This code has been tested with Ubuntu Linux 20.04 LTS (Focal Fossa) and ROS Noetic Ninjemys only.
 The Neural Network detector used for person detection requires an NVIDIA GPU with current Cuda capable drivers installed.
+
+Note:<br>
+Without GPU, the SSD detector will not run, and the airships will not "see" the person used as a subject in the demo. They will then assume the subject at the center of the map and circle that stationary point instead.
 
 ### Download
 
