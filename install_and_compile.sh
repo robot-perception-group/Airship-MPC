@@ -22,7 +22,7 @@ else
 fi
 
 echo "Will install required ROS packages"
-sudo apt-get install ros-noetic-ros-base gazebo11 ros-noetic-gazebo-dev ros-noetic-octomap-msgs ros-noetic-tf ros-noetic-mrpt2 ros-noetic-image-transport ros-noetic-rviz ros-noetic-cv-camera ros-noetic-image-geometry ros-noetic-gazebo-plugins ros-noetic-octomap-ros ros-noetic-controller-manager ros-noetic-joint-state-publisher ros-noetic-robot-state-publisher ros-noetic-xacro ros-noetic-gazebo-ros-control ros-noetic-position-controllers || { echo "Failure"; exit;}
+sudo apt-get install ros-noetic-ros-base gazebo11 ros-noetic-gazebo-dev ros-noetic-octomap-msgs ros-noetic-tf ros-noetic-mrpt2 ros-noetic-image-transport ros-noetic-rviz ros-noetic-cv-camera ros-noetic-image-geometry ros-noetic-gazebo-plugins ros-noetic-octomap-ros ros-noetic-controller-manager ros-noetic-joint-state-publisher ros-noetic-robot-state-publisher ros-noetic-xacro ros-noetic-gazebo-ros-control ros-noetic-position-controllers ros-noetic-compressed-image-transport || { echo "Failure"; exit;}
 source /opt/ros/noetic/setup.bash
 
 echo "Will install required GIT submodules"
