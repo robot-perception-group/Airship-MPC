@@ -30,12 +30,20 @@ git submodule update --init --recursive || { echo "Failure"; exit;}
 
 echo "Will install python modules"
 python3 -m pip install -U pip
-python3 -m pip install opengen torch torchvision torchaudio matplotlib
+python3 -m pip install "opengen<=0.9.4" torch torchvision torchaudio matplotlib
 export PATH="$HOME/.local/bin:$PATH"
 
 echo "Will install rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh /dev/stdin -y
 export PATH="$HOME/.cargo/bin:$PATH"
+
+rustup toolchain install 1.93.1 || { echo "Rust installation failed"; exit 1; }
+rustup default 1.93.1 || { echo "Failed to select Rust 1.93.1"; exit 1; }
+
+echo "Using the following Rust toolchain:"
+rustc --version
+cargo --version
+
 
 echo "Will compile MPC solver into ROS module"
 cd src

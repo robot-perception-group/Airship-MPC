@@ -490,7 +490,8 @@ build_config = og.config.BuildConfiguration()\
     .with_build_directory("codegen")\
     .with_build_mode("release")\
     .with_build_c_bindings()  \
-    .with_ros(ros_config)
+    .with_ros(ros_config) \
+    .with_open_version("0.9.1")
 meta = og.config.OptimizerMeta()\
     .with_optimizer_name("nmpc_blimp_formation_optimizer")\
     .with_version('0.1.1')\
